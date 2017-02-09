@@ -1,5 +1,5 @@
 // initialize Express in project
-"use strict"; 
+"use strict";
 
 
 const express = require('express');
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
         $('td[width="590"][valign="top"][bgcolor="#CCCCCC"]').each(function (index) {
 
             if (index == 1) {
-                var status = $(this).text().trim().replace('Status:','');
+                var status = $(this).text().trim().replace('Status:', '');
 
                 var antwoord = "";
 
@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 app.use(express.static('public'));
 
 // start Express on port 8080
-app.listen(80, () => {
+app.listen(8080, () => {
     console.log('Server Started on http://localhost:8080');
     console.log('Press CTRL + C to stop server');
 })
