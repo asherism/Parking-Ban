@@ -8,6 +8,11 @@ const app = express();
 const request = require("request");
 const cheerio = require("cheerio");
 
+
+const emojiFavicon = require('emoji-favicon');
+ 
+app.use(emojiFavicon('parking'));
+
 app.set('view engine', 'ejs');
 
 
