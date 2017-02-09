@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
                     antwoord = "No."
                 } else { antwoord = "Yes." }
 
-                res.render('index', { status, antwoord });
+                res.render('pages/index', { status, antwoord });
 
             }
 
