@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
             if (index == 1) {
                 var status = $(this).text().trim().replace('Status:','');
 
-                let antwoord = "";
+                var antwoord = "";
 
                 if (status.includes("lifted")) {
                     antwoord = "No."
