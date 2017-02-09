@@ -36,3 +36,23 @@ body {
 .child {
 
 }
+
+
+
+@media screen and (min-width: 400px) and (max-width: 600px) {
+      .parent {
+          transform: translate(-50%, -60%);
+          width: 75%;
+      }
+      
+      p {
+            margin-top: 0px;
+      }
+
+      h1 {
+            font-size: 90px;
+
+      }
+      
+}
+
