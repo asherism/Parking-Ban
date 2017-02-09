@@ -1,7 +1,6 @@
 // initialize Express in project
 "use strict"; 
-var a = require('./a.js');
-var b = new a(5);
+
 
 const express = require('express');
 const app = express();
