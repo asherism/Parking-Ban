@@ -13,11 +13,9 @@ a {
     text-decoration: none;
     color: #02538b;
     font-family: Helvetica, Arial, sans-serif; 
+    display: block;
 }
 
-body {
-
-}
 
 .parent {
     position: absolute;
@@ -33,9 +31,6 @@ body {
     justify-content: center;
 }
 
-.child {
-
-}
 
 .author {
     position: absolute;
