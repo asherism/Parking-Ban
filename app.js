@@ -1,36 +1,42 @@
 "use strict";
 
-const express = require('express');
+const express = require("express");
 const app = express();
 const request = require("request");
 const cheerio = require("cheerio");
 
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
-app.get('/', (req, res) => {
-    request('http://www.halifax.ca/snow/update.php', function (error, response, body) {
-        var $ = cheerio.load(body);
-        $('td[width="590"][valign="top"][bgcolor="#CCCCCC"]').each(function (index) {
-            if (index == 1) {
-                var status = $(this).text().trim().replace('Status:', '');
-                // console.log(typeof status);
-                var antwoord = "";
-                if (status.includes("lifted")) {
-                    antwoord = "No."
-                } else { antwoord = "Yes." }
-                res.render('pages/index', { status, antwoord });
-            }
-        });
-    })
+app.get("/", (req, res) => {
+  request(
+    "https://www.halifax.ca/transportation/winter-operations/service-updates",
+    function(error, response, body) {
+      var $ = cheerio.load(body);
+      // console.log($('td.row_1.col_1.c-table__cell'));
+      $("td.row_1.col_1.c-table__cell").each(function(index) {
+        // console.log(($(this)).text() +  index)
+        if (index === 0) {
+          var status = $(this)
+            .text()
+            .trim();
+        //   console.log(status);
+          var antwoord;
+          if (status.includes("not")) {
+            antwoord = "No.";
+          } else {
+            antwoord = "Yes.";
+          }
+          res.render("pages/index", { status, antwoord });
+        }
+      });
+    }
+  );
 });
 
-
-
-
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // start Express on port 8080
 app.listen(8080, () => {
-    console.log('Server Started on http://localhost:8080');
-    console.log('Press CTRL + C to stop server');
+  console.log("Server Started on http://localhost:8080");
+  console.log("Press CTRL + C to stop server");
 });
