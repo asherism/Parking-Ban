@@ -19,14 +19,17 @@ app.get("/", (req, res) => {
           var status = $(this)
             .text()
             .trim();
-        //   console.log(status);
+          console.log(status);
           var antwoord;
-          if (status.includes("not")) {
+          var link;
+          if (status.includes("not") || status.includes("NOT")) {
             antwoord = "No.";
+            link = "<meta property=\"og:image\" content=\"http://www.istheparkingbanon.ca/No.png\"\>"
           } else {
             antwoord = "Yes.";
+            link = "<meta property=\"og:image\" content=\"http://www.istheparkingbanon.ca/Yes.png\"\>"
           }
-          res.render("pages/index", { status, antwoord });
+          res.render("pages/index", { status, antwoord, link });
         }
       });
     }
