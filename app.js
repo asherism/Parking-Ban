@@ -24,10 +24,10 @@ app.get("/", (req, res) => {
           var link;
           if (status.includes("not") || status.includes("NOT")) {
             antwoord = "No.";
-            link = "<meta property=\"og:image\" content=\"http://www.istheparkingbanon.ca/No.png\"\>"
+            link = "<meta property=\"og:image\" content=\"http://www.istheparkingbanon.ca/Yes.png\"\>"
           } else {
             antwoord = "Yes.";
-            link = "<meta property=\"og:image\" content=\"http://www.istheparkingbanon.ca/Yes.png\"\>"
+            link = "<meta property=\"og:image\" content=\"http://www.istheparkingbanon.ca/No.png\"\>"
           }
           res.render("pages/index", { status, antwoord, link });
         }
